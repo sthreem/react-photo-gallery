@@ -1,8 +1,16 @@
-import React from 'react';
-import { AppWrapper, MainContent, SideContent } from '@/styles/layout'
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { fetchPictures, selectPicturesStatus } from '@/store/picturesSlice';
+import { AppWrapper, MainContent, SideContent } from '@/styles/layout';
 import GlobalStyle from '@/styles/global';
 
 const App: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const picturesStatus = useAppSelector(selectPicturesStatus);
+
+  useEffect(() => {
+    dispatch(fetchPictures());
+  }, [dispatch]);
 
   return (
     <>
@@ -18,7 +26,7 @@ const App: React.FC = () => {
         </SideContent>
       </AppWrapper>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
