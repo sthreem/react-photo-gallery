@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppWrapper, MainContent, SideContent } from './styles/layout'
-import GlobalStyle from './styles/global';
+import { AppWrapper, MainContent, SideContent } from '@/styles/layout'
+import GlobalStyle from '@/styles/global';
 
 const App: React.FC = () => {
 
