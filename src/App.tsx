@@ -4,6 +4,7 @@ import { fetchPictures, selectPicturesStatus } from '@/store/picturesSlice';
 import { AppWrapper, MainContent, SideContent } from '@/styles/layout';
 import GlobalStyle from '@/styles/global';
 import Loader from '@/components/Loader'
+import Gallery from '@/components/Gallery'
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -19,8 +20,7 @@ const App: React.FC = () => {
       {picturesStatus === 'loading' && <Loader />}
       <AppWrapper>
         <MainContent>
-          {/* TODO: Implement main gallery with tabs */}
-          <span>GALLERY</span>
+          <Gallery />
         </MainContent>
         <SideContent>
           {/* TODO: Implement selected picture details */}

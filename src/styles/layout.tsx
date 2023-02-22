@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// Main app view
 export const AppWrapper = styled.div`
   display: flex;
   height: 100vh;
@@ -38,5 +39,14 @@ export const SideContent = styled.aside`
   @media (min-width: 1024px) {
     order: 0;
     padding: 2.5rem;
+  }
+`;
+
+// Inner galleries view
+export const GalleryContainer = styled.div`
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    max-width: 950px
   }
 `;

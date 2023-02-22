@@ -1,3 +1,4 @@
+// Interfaces
 interface PictureMetrics {
   height: number;
   width: number;
@@ -30,4 +31,21 @@ export interface PicturesState {
   error: string | null;
   selectedPicture: Picture | null;
   favorites: Picture[];
+}
+
+export interface Tab {
+  label: string;
+  children: React.ReactNode;
+}
+
+export interface TabHeaderProps {
+  isActive: boolean;
+}
+
+export interface PicturesGridProps {
+  pictures: Picture[]
+}
+
+export interface StyledImageProps {
+  loaded: boolean;
 }
