@@ -10,7 +10,14 @@
         "@typescript-eslint"
     ],
     "rules": {
-        // TODO: Add custom rules later
+        "react/jsx-props-no-multi-spaces": "error",
+        "react/jsx-max-props-per-line": [
+            2,
+            {
+                "maximum": 1,
+                "when": "multiline"
+            }
+        ]
     },
     "env": {
         "browser": true,

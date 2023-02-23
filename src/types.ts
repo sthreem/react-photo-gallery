@@ -20,7 +20,7 @@ export interface Picture {
   updatedAt: string;
   dimensions: PictureMetrics;
   resolution: PictureMetrics;
-  sizeInBytes: string;
+  sizeInBytes: number;
   sharedWith: SharedUser[];
   favorited: boolean;
 }

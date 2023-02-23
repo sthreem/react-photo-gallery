@@ -49,8 +49,13 @@ const picturesSlice = createSlice({
       })
       .addCase(fetchPictures.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.pictures = action.payload;
-        state.favorites = action.payload.filter((pic: Picture) => pic.favorited);
+        // Since we don't have a functionality for adding new pictures
+        // it is safe to sort them once when successfully fetched
+        const sortedPictures = action.payload.sort((a: Picture, b: Picture) => {
+          return Date.parse(b.createdAt) - Date.parse(a.createdAt);
+        });
+        state.pictures = sortedPictures;
+        state.favorites = sortedPictures.filter((pic: Picture) => pic.favorited);
       })
       .addCase(fetchPictures.rejected, (state, action) => {
         state.status = 'failed';
@@ -66,5 +71,13 @@ export const selectFavorites = (state: RootState) => state.pictures.favorites;
 export const selectPicturesStatus = (state: RootState) => state.pictures.status;
 export const selectPicturesError = (state: RootState) => state.pictures.error;
 export const selectSelectedPicture = (state: RootState) => state.pictures.selectedPicture;
+export const selectPicturesSize = (state: RootState) => {
+  // Size in B needs to be converted to MB and returned in a hash map with picture.id as key
+  const pictureSize: { [key: string]: string } = {};
+  state.pictures.pictures.forEach((picture) => {
+    pictureSize[picture.id.toString()] = `${(picture.sizeInBytes / (1024 * 1024)).toFixed(1)} MB`;
+  });
+  return pictureSize;
+};
 
 export default picturesSlice.reducer;

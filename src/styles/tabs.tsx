@@ -14,22 +14,30 @@ export const TabHeadersContainer = styled.header`
 `;
 
 export const TabHeader = styled.button<TabHeaderProps>`
-  box-sizing: border-box;
-  margin-right: 2rem;
-  padding: 10px 0;
-  background-color: transparent;
+  margin-right: 1.5rem;
+  padding: 10px;
+  position: relative;
+  background: none;
   color: ${({ isActive }) => (isActive ? "#4F45E4" : "#64748B")};
   font-weight: 600;
   border: none;
   box-shadow: ${({ isActive }) => isActive ? "0 2px 0 0 #4F45E4" : "none"};
-  cursor: pointer;
   transition: box-shadow 0.1s ease-in-out;
+  cursor: pointer;
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px blue;
-    outline-offset: 1rem;
+  &:focus,
+  &:hover,
+  &:focus-visible {
+      outline: none;
   }
+
+  &:focus-visible:before {
+		content: "";
+		position: absolute;
+		inset: -5px;
+		border: 2px solid #4F45E4;
+		border-radius: 5px;
+	}
 `;
 
 export const TabContent = styled.section`

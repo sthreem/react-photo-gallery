@@ -1,14 +1,14 @@
 import React from "react";
 import GalleryTabs from '@/components/GalleryTabs'
 import { GalleryContainer } from '@/styles/layout'
-import { GalleryHeading } from '@/styles/texts'
+import { MainHeading } from '@/styles/texts'
 
 const Gallery: React.FC = () => {
   return (
     <GalleryContainer>
-      <GalleryHeading>
+      <MainHeading>
         Photos
-      </GalleryHeading>
+      </MainHeading>
       <GalleryTabs />
     </GalleryContainer>
   );

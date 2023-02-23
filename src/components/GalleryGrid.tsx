@@ -1,6 +1,6 @@
 import React from 'react';
-import { PicturesGridProps } from '@/types'
-import GridPicture from '@/components/GridPicture'
+import { PicturesGridProps } from '@/types';
+import GridPicture from '@/components/GridPicture';
 
 const GalleryGrid: React.FC<PicturesGridProps> = ({ pictures }) => {
   return (
