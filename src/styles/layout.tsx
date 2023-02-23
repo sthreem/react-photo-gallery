@@ -43,7 +43,7 @@ export const SideContent = styled.aside`
 `;
 
 // Inner galleries view
-export const GalleryContainer = styled.div`
+export const GalleriesContainer = styled.div`
   width: 100%;
 
   @media (min-width: 1024px) {

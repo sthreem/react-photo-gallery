@@ -1,5 +1,5 @@
 // Interfaces
-interface PictureMetrics {
+interface PhotoMetrics {
   height: number;
   width: number;
 }
@@ -10,7 +10,7 @@ interface SharedUser {
   avatar: string;
 }
 
-export interface Picture {
+export interface Photo {
   id: string;
   url: string;
   filename: string;
@@ -18,39 +18,36 @@ export interface Picture {
   uploadedBy: string;
   createdAt: string;
   updatedAt: string;
-  dimensions: PictureMetrics;
-  resolution: PictureMetrics;
+  dimensions: PhotoMetrics;
+  resolution: PhotoMetrics;
   sizeInBytes: number;
   sharedWith: SharedUser[];
   favorited: boolean;
 }
 
-export interface PicturesState {
+export interface PhotosState {
   status: 'idle' | 'loading' | 'failed';
-  pictures: Picture[];
+  photos: Photo[];
   error: string | null;
-  selectedPicture: Picture | null;
-  favorites: Picture[];
-}
-
-export interface Tab {
-  label: string;
-  children: React.ReactNode;
+  selectedPhoto: Photo | null;
+  favorites: Photo[];
 }
 
 export interface TabHeaderProps {
   isActive: boolean;
 }
 
-export interface PicturesGridProps {
-  pictures: Picture[];
+export interface TabGridProps {
+  index: number;
+  isHidden: boolean;
+  isFavorites: boolean;
 }
 
-export interface GridPictureProps {
-  picture: Picture;
+export interface GridPhotoProps {
+  photo: Photo;
   key: number;
 }
 
-export interface StyledImageProps {
+export interface PhotoProps {
   loaded: boolean;
 }

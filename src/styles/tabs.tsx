@@ -6,16 +6,16 @@ export const TabsContainer = styled.div`
   flex-direction: column;
 `;
 
-export const TabHeadersContainer = styled.header`
+export const TabsNavigation = styled.nav`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid #CDD8E3;
 `;
 
-export const TabHeader = styled.button<TabHeaderProps>`
+export const NavigationButton = styled.button<TabHeaderProps>`
   margin-right: 1.5rem;
-  padding: 10px;
+  padding: 10px 0;
   position: relative;
   background: none;
   color: ${({ isActive }) => (isActive ? "#4F45E4" : "#64748B")};
@@ -24,23 +24,9 @@ export const TabHeader = styled.button<TabHeaderProps>`
   box-shadow: ${({ isActive }) => isActive ? "0 2px 0 0 #4F45E4" : "none"};
   transition: box-shadow 0.1s ease-in-out;
   cursor: pointer;
-
-  &:focus,
-  &:hover,
-  &:focus-visible {
-      outline: none;
-  }
-
-  &:focus-visible:before {
-		content: "";
-		position: absolute;
-		inset: -5px;
-		border: 2px solid #4F45E4;
-		border-radius: 5px;
-	}
 `;
 
-export const TabContent = styled.section`
+export const TabGrid = styled.div`
   margin-top: 2.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

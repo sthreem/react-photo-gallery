@@ -1,29 +1,29 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store';
-import { fetchPictures, selectPicturesStatus } from '@/store/picturesSlice';
+import { fetchPhotos, selectPhotosStatus } from '@/store/photosSlice';
 import { AppWrapper, MainContent, SideContent } from '@/styles/layout';
 import GlobalStyle from '@/styles/global';
 import Loader from '@/components/Loader'
-import Gallery from '@/components/Gallery'
+import Galleries from '@/components/Galleries'
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
-  const picturesStatus = useAppSelector(selectPicturesStatus);
+  const photosStatus = useAppSelector(selectPhotosStatus);
 
   useEffect(() => {
-    dispatch(fetchPictures());
+    dispatch(fetchPhotos());
   }, [dispatch]);
 
   return (
     <>
       <GlobalStyle />
-      {picturesStatus === 'loading' && <Loader />}
+      {photosStatus === 'loading' && <Loader />}
       <AppWrapper>
         <MainContent>
-          <Gallery />
+          <Galleries />
         </MainContent>
         <SideContent>
-          {/* TODO: Implement selected picture details */}
+          {/* TODO: Implement selected photo details */}
           <span>PICTURE DETAILS</span>
         </SideContent>
       </AppWrapper>

@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
-import picturesReducer from '@/store/picturesSlice';
+import photosReducer from '@/store/photosSlice';
 
 const store = configureStore({
   reducer: {
-    pictures: picturesReducer,
+    photos: photosReducer,
   },
 });
 
