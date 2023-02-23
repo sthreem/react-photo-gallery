@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // Main app view
 export const AppWrapper = styled.div`
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   flex-direction: row;
 
   @media (max-width: 1024px) {

@@ -43,7 +43,12 @@ export interface TabHeaderProps {
 }
 
 export interface PicturesGridProps {
-  pictures: Picture[]
+  pictures: Picture[];
+}
+
+export interface GridPictureProps {
+  picture: Picture;
+  key: number;
 }
 
 export interface StyledImageProps {

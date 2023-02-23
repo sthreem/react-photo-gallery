@@ -62,6 +62,7 @@ const picturesSlice = createSlice({
 export const { selectPicture, addToFavorites, removeFromFavorites } = picturesSlice.actions;
 
 export const selectPictures = (state: RootState) => state.pictures.pictures;
+export const selectFavorites = (state: RootState) => state.pictures.favorites;
 export const selectPicturesStatus = (state: RootState) => state.pictures.status;
 export const selectPicturesError = (state: RootState) => state.pictures.error;
 export const selectSelectedPicture = (state: RootState) => state.pictures.selectedPicture;
