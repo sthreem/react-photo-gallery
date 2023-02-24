@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -12,6 +12,15 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-weight: 700;
     margin: 0;
+    font-size: 2rem;
+    color: #161D30;
+  }
+
+  h2 {
+    font-weight: 600;
+    margin: 0;
+    color: #64748B;
+    font-size: 1rem;
   }
 
   p {
@@ -35,6 +44,6 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
     color: #161D30;
   }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

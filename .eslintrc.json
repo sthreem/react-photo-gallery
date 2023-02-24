@@ -10,9 +10,17 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
         "react/jsx-props-no-multi-spaces": "error",
         "react/jsx-max-props-per-line": [
-            2,
+            1,
             {
                 "maximum": 1,
                 "when": "multiline"

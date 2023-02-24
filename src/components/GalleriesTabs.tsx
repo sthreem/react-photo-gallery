@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { TabsContainer, TabsNavigation, NavigationButton } from "@/styles/tabs";
+import React, { useState } from 'react'
+import { TabsContainer, TabsNavigation, NavigationButton } from '@/styles/tabs'
 import TabContent from '@/components/TabContent'
 
 const GalleriesTabs: React.FC = () => {
-  const [activeTab, setActiveTab] = useState(0);
-  const tabs: string[] = ["Recently Added", "Favorited"];
+  const [activeTab, setActiveTab] = useState(0)
+  const tabs: string[] = ['Recently Added', 'Favorited']
 
   return (
     <TabsContainer
@@ -35,7 +35,7 @@ const GalleriesTabs: React.FC = () => {
           isFavorites={activeTab === 1} />
       ))}
     </TabsContainer>
-  );
-};
+  )
+}
 
-export default GalleriesTabs;
+export default GalleriesTabs

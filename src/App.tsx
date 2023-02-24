@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '@/store';
-import { fetchPhotos, selectPhotosStatus } from '@/store/photosSlice';
-import { AppWrapper, MainContent, SideContent } from '@/styles/layout';
-import GlobalStyle from '@/styles/global';
+import React, { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { fetchPhotos, selectPhotosStatus, selectSelectedPhoto } from '@/store/photosSlice'
+import { AppWrapper, MainContent, SideContent } from '@/styles/layout'
+import GlobalStyle from '@/styles/global'
 import Loader from '@/components/Loader'
 import Galleries from '@/components/Galleries'
+import PhotoDetails from '@/components/PhotoDetails'
 
 const App: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const photosStatus = useAppSelector(selectPhotosStatus);
+  const dispatch = useAppDispatch()
+  const photosStatus = useAppSelector(selectPhotosStatus)
+  const selectedPhoto = useAppSelector(selectSelectedPhoto)
 
   useEffect(() => {
-    dispatch(fetchPhotos());
-  }, [dispatch]);
+    dispatch(fetchPhotos())
+  }, [dispatch])
 
   return (
     <>
@@ -22,13 +24,13 @@ const App: React.FC = () => {
         <MainContent>
           <Galleries />
         </MainContent>
-        <SideContent>
-          {/* TODO: Implement selected photo details */}
-          <span>PICTURE DETAILS</span>
+        <SideContent
+          className={!selectedPhoto ? 'no-selected-photo' : ''}>
+          <PhotoDetails />
         </SideContent>
       </AppWrapper>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

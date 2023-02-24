@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const LoaderOverlay = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const LoaderOverlay = styled.div`
   height: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   z-index: 9999;
-`;
+`
 
 export const Spinner = styled.div`
   width: 30px;
@@ -26,4 +26,4 @@ export const Spinner = styled.div`
       -webkit-transform: rotate(360deg);
     }
   }
-`;
+`

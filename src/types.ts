@@ -44,10 +44,12 @@ export interface TabGridProps {
 }
 
 export interface GridPhotoProps {
+  key?: number;
   photo: Photo;
-  key: number;
+  isInGrid: boolean;
 }
 
 export interface PhotoProps {
   loaded: boolean;
+  isVertical: boolean;
 }

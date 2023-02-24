@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { LoaderOverlay, Spinner } from '@/styles/loader'
 
 const Loader: React.FC = () => {
@@ -6,7 +6,7 @@ const Loader: React.FC = () => {
     <LoaderOverlay>
       <Spinner />
     </LoaderOverlay>
-  );
-};
+  )
+}
 
-export default Loader;
+export default Loader
