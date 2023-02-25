@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { HeartIconProps } from '@/types'
 
 const HeartIcon: React.FC<HeartIconProps> = ({ isFavorite }) => {

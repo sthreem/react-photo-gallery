@@ -1,10 +1,20 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+
 import { useAppSelector } from '@/store'
-import { deletePhoto, selectSelectedPhoto, selectInfoToDisplay } from '@/store/photosSlice'
-import { DetailsWrapper, PhotoInfos, DeleteButton } from '@/styles/photos'
+import {
+  deletePhoto,
+  selectSelectedPhoto,
+  selectInfoToDisplay,
+} from '@/store/photosSlice'
+import {
+  DetailsWrapper,
+  PhotoInfos,
+  DeleteButton,
+} from '@/styles/photos'
 import { PhotoInfoHeading, PhotoInfoRow } from '@/styles/texts'
 import PhotoElements from '@/components/PhotoElements'
+
 
 const PhotoDetails: React.FC = () => {
   const dispatch = useDispatch()

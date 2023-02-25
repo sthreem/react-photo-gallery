@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+
 import { RootState } from '@/store'
 import { Photo, PhotosState } from '@/types'
 import helpers from '@/utilities/helpers'
-import { PHOTOS_ENDPOINT } from '@/utilities/constants'
+import constants from '@/utilities/constants'
+
 
 const initialState: PhotosState = {
   status: 'idle',
@@ -14,7 +16,7 @@ const initialState: PhotosState = {
 }
 
 export const fetchPhotos = createAsyncThunk('photos/fetchPhotos', async () => {
-  const response = await axios.get(PHOTOS_ENDPOINT)
+  const response = await axios.get(constants.PHOTOS_ENDPOINT)
   return response.data
 })
 

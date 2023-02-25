@@ -2,12 +2,14 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:testing-library/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "testing-library"
     ],
     "rules": {
         "quotes": [
@@ -25,7 +27,20 @@
                 "maximum": 1,
                 "when": "multiline"
             }
-        ]
+        ],
+        "testing-library/await-async-query": "error",
+        "testing-library/no-debug": "warn",
+        "testing-library/no-dom-import": [
+            "error",
+            "react"
+        ],
+        "testing-library/no-wait-for-empty-callback": "error",
+        "testing-library/no-wait-for-multiple-assertions": "error",
+        "testing-library/no-wait-for-side-effects": "error",
+        "testing-library/prefer-find-by": "error",
+        "testing-library/prefer-presence-queries": "error",
+        "testing-library/prefer-screen-queries": "warn",
+        "testing-library/render-result-naming-convention": "error"
     },
     "env": {
         "browser": true,

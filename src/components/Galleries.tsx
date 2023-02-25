@@ -1,7 +1,8 @@
 import React from 'react'
-import GalleriesTabs from '@/components/GalleriesTabs'
+
 import { GalleriesContainer } from '@/styles/layout'
 import { GalleriesHeading } from '@/styles/texts'
+import GalleriesTabs from '@/components/GalleriesTabs'
 
 const Galleries: React.FC = () => {
   return (

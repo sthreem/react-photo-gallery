@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
-import { TabsContainer, TabsNavigation, NavigationButton } from '@/styles/tabs'
+
 import TabContent from '@/components/TabContent'
+import {
+  NavigationButton,
+  TabsContainer,
+  TabsNavigation,
+} from '@/styles/tabs'
+
 
 const GalleriesTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0)

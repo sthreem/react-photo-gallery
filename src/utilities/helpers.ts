@@ -1,5 +1,5 @@
 import { Photo, PhotoMetrics, SharedUser } from '@/types'
-import { INFO_TO_DISPLAY } from '@/utilities/constants'
+import constants from '@/utilities/constants'
 
 // Date string values need parsing before formatting
 const formatDate = (dateString: string): string => {
@@ -27,7 +27,7 @@ const formatInfo = (key: string, value: string | number | boolean | PhotoMetrics
   }
 }
 
-const helpers = {
+export default {
   // Sort photos by their createdAt property
   sortByCreatedAt: (photos: Photo[]) => {
     return photos.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
@@ -46,9 +46,7 @@ const helpers = {
     }
 
     return Object.entries(photo)
-      .filter(([key]) => Object.keys(INFO_TO_DISPLAY).includes(key as keyof Photo))
-      .map(([key, value]) => ({ key: INFO_TO_DISPLAY[key as keyof Photo], value: formatInfo(key, value as string) }))
+      .filter(([key]) => Object.keys(constants.INFO_TO_DISPLAY).includes(key as keyof Photo))
+      .map(([key, value]) => ({ key: constants.INFO_TO_DISPLAY[key as keyof Photo], value: formatInfo(key, value as string) }))
   }
 }
-
-export default helpers

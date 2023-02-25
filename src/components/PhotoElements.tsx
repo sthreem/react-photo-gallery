@@ -1,10 +1,27 @@
 import React, { useState } from 'react'
-import { GridPhotoProps } from '@/types'
-import { PhotoFigure, PhotoWrapper, PhotoImage, PhotoCaption, InfoActionWrapper, InfoWrapper, ActionWrapper } from '@/styles/photos'
 import { useDispatch } from 'react-redux'
+
 import { useAppSelector } from '@/store'
-import { selectPhoto, unselectPhoto, addToFavorites, removeFromFavorites, selectPhotoSize, selectSelectedPhoto, selectIsPhotoInFavorites } from '@/store/photosSlice'
+import {
+  selectPhoto,
+  unselectPhoto,
+  addToFavorites,
+  removeFromFavorites,
+  selectPhotoSize,
+  selectSelectedPhoto,
+  selectIsPhotoInFavorites,
+} from '@/store/photosSlice'
 import FavoriteIcon from '@/components/FavoriteIcon'
+import { GridPhotoProps } from '@/types'
+import {
+  PhotoFigure,
+  PhotoWrapper,
+  PhotoImage,
+  PhotoCaption,
+  InfoActionWrapper,
+  InfoWrapper,
+  ActionWrapper,
+} from '@/styles/photos'
 
 const PhotoElements: React.FC<GridPhotoProps> = ({ photo, isInGrid }) => {
   const [loaded, setLoaded] = useState<boolean>(false)
