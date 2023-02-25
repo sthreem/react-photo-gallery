@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 // Main app view
 export const AppWrapper = styled.div`
@@ -10,12 +10,12 @@ export const AppWrapper = styled.div`
   @media (max-width: 1024px) {
     flex-direction: column;
   }
-`
+`;
 
 export const MainContent = styled.main`
   background-color: #f7fafc;
   flex: 2;
-  border-top: 1px solid #CDD8E3;
+  border-top: 1px solid #cdd8e3;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -24,10 +24,10 @@ export const MainContent = styled.main`
 
   @media (min-width: 1024px) {
     border-top: none;
-    border-right: 1px solid #CDD8E3;
+    border-right: 1px solid #cdd8e3;
     padding: 2.5rem;
   }
-`
+`;
 
 export const SideContent = styled.aside`
   background-color: #fff;
@@ -36,7 +36,7 @@ export const SideContent = styled.aside`
   justify-content: center;
   align-items: flex-start;
   padding: 1.5rem;
-  border-top: 1px solid #CDD8E3;
+  border-top: 1px solid #cdd8e3;
   transition: flex 0.2s ease-in-out;
   max-height: 427px;
 
@@ -62,13 +62,13 @@ export const SideContent = styled.aside`
       flex: 1;
     }
   }
-`
+`;
 
 // Inner galleries view
 export const GalleriesContainer = styled.div`
   width: 100%;
 
   @media (min-width: 1024px) {
-    max-width: 950px
+    max-width: 950px;
   }
-`
+`;

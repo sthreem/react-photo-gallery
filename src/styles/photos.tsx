@@ -1,5 +1,6 @@
-import styled from 'styled-components'
-import { PhotoProps } from '@/types'
+import styled from 'styled-components';
+
+import { PhotoProps } from '@/types';
 
 export const PhotoFigure = styled.figure`
   display: flex;
@@ -23,12 +24,12 @@ export const PhotoFigure = styled.figure`
       width: 100%;
     }
   }
-`
+`;
 
 export const PhotoWrapper = styled.span<{ loaded: boolean }>`
   position: relative;
   background-color: ${(props) => (props.loaded ? 'transparent' : '#f3f3f3')};
-  margin-bottom: .4rem;
+  margin-bottom: 0.4rem;
   border-radius: 1rem;
   max-height: 450px;
   display: flex;
@@ -40,10 +41,10 @@ export const PhotoWrapper = styled.span<{ loaded: boolean }>`
     padding-bottom: 75%;
 
     &.is-active-photo:before {
-      content: "";
+      content: '';
       position: absolute;
       inset: -5px;
-      border: 2px solid #4F45E4;
+      border: 2px solid #4f45e4;
       border-radius: 1rem;
     }
   }
@@ -51,7 +52,7 @@ export const PhotoWrapper = styled.span<{ loaded: boolean }>`
   @media (min-width: 1024px) {
     max-height: inherit;
   }
-`
+`;
 
 export const PhotoImage = styled.img<PhotoProps>`
   width: ${(props) => (props.isVertical ? 'auto' : '100%')};
@@ -70,7 +71,7 @@ export const PhotoImage = styled.img<PhotoProps>`
     object-fit: cover;
 
     &:hover {
-      opacity: .5;
+      opacity: 0.5;
     }
   }
 
@@ -79,21 +80,21 @@ export const PhotoImage = styled.img<PhotoProps>`
       display: inherit;
     }
   }
-`
+`;
 
 export const InfoActionWrapper = styled.span`
   &:not(.photo-in-grid) {
     display: flex;
     justify-content: space-between;
   }
-`
+`;
 
 export const InfoWrapper = styled.span`
   &:not(.photo-in-grid) {
     display: flex;
     flex-direction: column;
   }
-`
+`;
 
 export const ActionWrapper = styled.span`
   display: none;
@@ -104,17 +105,17 @@ export const ActionWrapper = styled.span`
     justify-content: center;
     cursor: pointer;
   }
-`
+`;
 
 export const PhotoCaption = styled.figcaption`
-  padding: .4rem 0;
+  padding: 0.4rem 0;
   overflow: hidden;
   text-overflow: ellipsis;
 
   &:not(.photo-in-grid) {
     font-size: 1rem;
   }
-`
+`;
 
 export const PhotoInfos = styled.article`
   display: flex;
@@ -130,7 +131,7 @@ export const PhotoInfos = styled.article`
   @media (min-width: 1024px) {
     padding-top: 2rem;
   }
-`
+`;
 
 export const DetailsWrapper = styled.section`
   width: 450px;
@@ -160,22 +161,22 @@ export const DetailsWrapper = styled.section`
       justify-content: flex-start;
     }
   }
-`
+`;
 
 export const DeleteButton = styled.button`
   margin-top: 1rem;
   cursor: pointer;
   background: none;
-  padding: .5rem;
-  border-radius: .5rem;
-  border: 2px solid #CDD8E3;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #cdd8e3;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: #CDD8E3;
+    background-color: #cdd8e3;
   }
 
   @media (min-width: 1024px) {
     margin-top: 2rem;
   }
-`
+`;

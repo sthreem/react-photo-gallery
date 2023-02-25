@@ -1,18 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-import { GalleriesContainer } from '@/styles/layout'
-import { GalleriesHeading } from '@/styles/texts'
-import GalleriesTabs from '@/components/GalleriesTabs'
+import GalleriesTabs from '@/components/GalleriesTabs';
+import { GalleriesContainer } from '@/styles/layout';
+import { GalleriesHeading } from '@/styles/texts';
 
 const Galleries: React.FC = () => {
   return (
     <GalleriesContainer>
-      <GalleriesHeading className='dark'>
-        Photos
-      </GalleriesHeading>
+      <GalleriesHeading className="dark">Photos</GalleriesHeading>
       <GalleriesTabs />
     </GalleriesContainer>
-  )
-}
+  );
+};
 
-export default Galleries
+export default Galleries;

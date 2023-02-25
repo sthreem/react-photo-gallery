@@ -14,7 +14,7 @@ export interface Photo {
   id: string;
   url: string;
   filename: string;
-  description: string
+  description: string;
   uploadedBy: string;
   createdAt: string;
   updatedAt: string;

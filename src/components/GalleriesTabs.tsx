@@ -1,23 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import TabContent from '@/components/TabContent'
-import {
-  NavigationButton,
-  TabsContainer,
-  TabsNavigation,
-} from '@/styles/tabs'
-
+import TabContent from '@/components/TabContent';
+import { NavigationButton, TabsContainer, TabsNavigation } from '@/styles/tabs';
 
 const GalleriesTabs: React.FC = () => {
-  const [activeTab, setActiveTab] = useState(0)
-  const tabs: string[] = ['Recently Added', 'Favorited']
+  const [activeTab, setActiveTab] = useState(0);
+  const tabs: string[] = ['Recently Added', 'Favorited'];
 
   return (
-    <TabsContainer
-      id="tabs-container">
-      <TabsNavigation
-        role="tablist"
-        id="tabs-navigation" >
+    <TabsContainer id="tabs-container">
+      <TabsNavigation role="tablist" id="tabs-navigation">
         {tabs.map((tab, index) => (
           <NavigationButton
             key={`navigation-button-${index}`}
@@ -27,7 +19,8 @@ const GalleriesTabs: React.FC = () => {
             aria-selected={activeTab === index}
             aria-controls={`tab-content-${index}`}
             tabIndex={activeTab === index ? 0 : -1}
-            id={`navigation-button-${index}`} >
+            id={`navigation-button-${index}`}
+          >
             {tabs[index]}
           </NavigationButton>
         ))}
@@ -38,10 +31,11 @@ const GalleriesTabs: React.FC = () => {
           key={`tab-content-${index}`}
           index={index}
           isHidden={activeTab !== index}
-          isFavorites={activeTab === 1} />
+          isFavorites={activeTab === 1}
+        />
       ))}
     </TabsContainer>
-  )
-}
+  );
+};
 
-export default GalleriesTabs
+export default GalleriesTabs;

@@ -1,10 +1,12 @@
-import React from 'react'
-import { createRoot } from 'react-dom/client'
-import { Provider } from 'react-redux'
-import 'normalize.css'
+import 'normalize.css';
 
-import App from '@/App'
-import store from './store'
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+
+import App from '@/App';
+
+import store from './store';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -12,4 +14,4 @@ createRoot(document.getElementById('root') as HTMLElement).render(
       <App />
     </Provider>
   </React.StrictMode>,
-)
+);

@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import { LoaderOverlay, Spinner } from '@/styles/loader'
+import { LoaderOverlay, Spinner } from '@/styles/loader';
 
 const Loader: React.FC = () => {
   return (
     <LoaderOverlay>
       <Spinner />
     </LoaderOverlay>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;
