@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { GridPhotoProps } from '@/types'
-import { PhotoFigure, PhotoWrapper, PhotoImage, PhotoCaption } from '@/styles/photos'
+import { PhotoFigure, PhotoWrapper, PhotoImage, PhotoCaption, InfoActionWrapper, InfoWrapper, ActionWrapper } from '@/styles/photos'
 import { useDispatch } from 'react-redux'
 import { useAppSelector } from '@/store'
-import { selectPhoto, unselectPhoto, selectPhotoSize, selectSelectedPhoto } from '@/store/photosSlice'
+import { selectPhoto, unselectPhoto, addToFavorites, removeFromFavorites, selectPhotoSize, selectSelectedPhoto, selectIsPhotoInFavorites } from '@/store/photosSlice'
+import FavoriteIcon from '@/components/FavoriteIcon'
 
 const PhotoElements: React.FC<GridPhotoProps> = ({ photo, isInGrid }) => {
   const [loaded, setLoaded] = useState<boolean>(false)
@@ -11,6 +12,7 @@ const PhotoElements: React.FC<GridPhotoProps> = ({ photo, isInGrid }) => {
   const photoSize = useAppSelector(selectPhotoSize)
   const selectedPhoto = useAppSelector(selectSelectedPhoto)
   const isVertical = photo ? photo.dimensions.height > photo.dimensions.width : false
+  const isFavorite = useAppSelector(selectIsPhotoInFavorites(photo.id))
 
   const handleSelectPhoto = () => {
     isInGrid
@@ -20,9 +22,11 @@ const PhotoElements: React.FC<GridPhotoProps> = ({ photo, isInGrid }) => {
       : null
   }
 
-  const photoFigureClasses = [
-    isInGrid ? 'photo-in-grid' : ''
-  ].join(' ')
+  const handleFavoritePhoto = () => {
+    isFavorite
+      ? dispatch(removeFromFavorites(photo))
+      : dispatch(addToFavorites(photo))
+  }
 
   const photoWrapperClasses = [
     'photo-wrapper',
@@ -37,12 +41,13 @@ const PhotoElements: React.FC<GridPhotoProps> = ({ photo, isInGrid }) => {
 
   const photoCaptionClasses = [
     'photo-caption',
-    'body-semibold-dark',
+    'bold',
+    'dark',
     isInGrid ? 'photo-in-grid' : '',
   ].join(' ')
 
   return (
-    <PhotoFigure className={photoFigureClasses}>
+    <PhotoFigure className={isInGrid ? 'photo-in-grid' : ''}>
       <PhotoWrapper
         className={photoWrapperClasses}
         onClick={handleSelectPhoto}
@@ -58,14 +63,25 @@ const PhotoElements: React.FC<GridPhotoProps> = ({ photo, isInGrid }) => {
           isVertical={isVertical}
           onLoad={() => setLoaded(true)} />
       </PhotoWrapper>
-      <PhotoCaption
-        className={photoCaptionClasses}>
-        {photo.filename}
-      </PhotoCaption>
-      <p
-        className='photo-info body'>
-        {photoSize[photo.id]}
-      </p>
+      <InfoActionWrapper
+        className={isInGrid ? 'photo-in-grid' : ''}>
+        <InfoWrapper
+          className={isInGrid ? 'photo-in-grid' : ''} >
+          <PhotoCaption
+            className={photoCaptionClasses}>
+            {photo.filename}
+          </PhotoCaption>
+          <p
+            className='photo-info semibold light'>
+            {photoSize[photo.id]}
+          </p>
+        </InfoWrapper>
+        <ActionWrapper
+          className={isInGrid ? 'photo-in-grid' : ''}
+          onClick={handleFavoritePhoto} >
+          <FavoriteIcon isFavorite={isFavorite} />
+        </ActionWrapper>
+      </InfoActionWrapper>
     </PhotoFigure>
   )
 }

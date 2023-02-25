@@ -6,7 +6,7 @@ import { GalleriesHeading } from '@/styles/texts'
 const Galleries: React.FC = () => {
   return (
     <GalleriesContainer>
-      <GalleriesHeading>
+      <GalleriesHeading className='dark'>
         Photos
       </GalleriesHeading>
       <GalleriesTabs />

@@ -81,6 +81,31 @@ export const PhotoImage = styled.img<PhotoProps>`
   }
 `
 
+export const InfoActionWrapper = styled.span`
+  &:not(.photo-in-grid) {
+    display: flex;
+    justify-content: space-between;
+  }
+`
+
+export const InfoWrapper = styled.span`
+  &:not(.photo-in-grid) {
+    display: flex;
+    flex-direction: column;
+  }
+`
+
+export const ActionWrapper = styled.span`
+  display: none;
+
+  &:not(.photo-in-grid) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+`
+
 export const PhotoCaption = styled.figcaption`
   padding: .4rem 0;
   overflow: hidden;
@@ -88,6 +113,22 @@ export const PhotoCaption = styled.figcaption`
 
   &:not(.photo-in-grid) {
     font-size: 1rem;
+  }
+`
+
+export const PhotoInfos = styled.article`
+  display: flex;
+  width: 100%;
+  padding-top: 1rem;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+    padding-top: 0;
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 2rem;
   }
 `
 
@@ -101,7 +142,7 @@ export const DetailsWrapper = styled.section`
   align-items: center;
 
   @media (min-width: 768px) {
-    width: 100%;
+    max-width: 50%;
 
     &.selected-photo {
       justify-content: flex-start;
@@ -118,5 +159,23 @@ export const DetailsWrapper = styled.section`
     &.selected-photo {
       justify-content: flex-start;
     }
+  }
+`
+
+export const DeleteButton = styled.button`
+  margin-top: 1rem;
+  cursor: pointer;
+  background: none;
+  padding: .5rem;
+  border-radius: .5rem;
+  border: 2px solid #CDD8E3;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #CDD8E3;
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 2rem;
   }
 `

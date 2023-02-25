@@ -1,10 +1,10 @@
 // Interfaces
-interface PhotoMetrics {
+export interface PhotoMetrics {
   height: number;
   width: number;
 }
 
-interface SharedUser {
+export interface SharedUser {
   id: string;
   name: string;
   avatar: string;
@@ -52,4 +52,8 @@ export interface GridPhotoProps {
 export interface PhotoProps {
   loaded: boolean;
   isVertical: boolean;
+}
+
+export interface HeartIconProps {
+  isFavorite: boolean;
 }

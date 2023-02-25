@@ -7,19 +7,19 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Open Sans', sans-serif;
+    font-size: .9rem;
+    font-weight: 300;
   }
 
   h1 {
     font-weight: 700;
     margin: 0;
     font-size: 2rem;
-    color: #161D30;
   }
 
   h2 {
     font-weight: 600;
     margin: 0;
-    color: #64748B;
     font-size: 1rem;
   }
 
@@ -27,21 +27,19 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
-  .body {
-    font-size: .9rem;
-    font-weight: 300;
+  .semibold {
+    font-weight: 400;
+  }
+
+  .bold {
+    font-weight: 600;
+  }
+
+  .light {
     color: #64748B;
   }
 
-  .body-semibold-light {
-    font-size: .9rem;
-    font-weight: 600;
-    color: #64748B;
-  }
-
-  .body-semibold-dark {
-    font-size: .9rem;
-    font-weight: 600;
+  .dark {
     color: #161D30;
   }
 `
