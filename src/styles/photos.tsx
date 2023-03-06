@@ -141,6 +141,7 @@ export const StyledDetailsWrapper = styled.section<{ isSelected: boolean }>`
   align-items: center;
   width: 100%;
   max-width: 450px;
+  overflow-x: auto;
 `;
 
 export const StyledDeleteButton = styled.button`
