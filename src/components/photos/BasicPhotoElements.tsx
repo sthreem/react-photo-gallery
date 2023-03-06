@@ -38,7 +38,7 @@ const BasicPhotoElements: React.FC<GridPhotoProps> = ({ photo, isInGrid = false 
   };
 
   return (
-    <StyledPhotoFigure isInGrid={isInGrid} data-testid={`basic-photo-figure-${photo.id}`}>
+    <StyledPhotoFigure isInGrid={isInGrid} data-testid="basic-photo-elements">
       {/* Photo visuals */}
       <StyledImageWrapper
         isActive={photo.id === selectedPhoto?.id}

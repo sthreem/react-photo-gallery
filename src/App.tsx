@@ -29,7 +29,7 @@ const App: React.FC = () => {
       <StyledAppWrapper>
         {/* Main content for tabs and galleries */}
         <StyledMainContent>
-          <Galleries data-testid="galleries" />
+          <Galleries />
         </StyledMainContent>
         {/* Side content for selected picture's details */}
         <StyledSideContent isSelected={!!selectedPhoto} data-testid="photo-details">

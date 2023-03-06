@@ -17,13 +17,13 @@ const mockInitialState: PhotosState = {
 };
 
 const mockPhoto: Photo = {
-  id: "id",
-  url: "url",
-  filename: "filename",
-  description: "description",
-  uploadedBy: "uploadedBy",
-  createdAt: "2017-07-15T08:23:20.462Z",
-  updatedAt: "2022-12-16T12:41:33.736Z",
+  id: 'id',
+  url: 'url',
+  filename: 'filename',
+  description: 'description',
+  uploadedBy: 'uploadedBy',
+  createdAt: '2017-07-15T08:23:20.462Z',
+  updatedAt: '2022-12-16T12:41:33.736Z',
   dimensions: {
     height: 100,
     width: 100,
@@ -35,12 +35,12 @@ const mockPhoto: Photo = {
   sizeInBytes: 4812732,
   sharedWith: [
     {
-      id: "id",
-      name: "name",
-      avatar: "avatar",
-    }
+      id: 'id',
+      name: 'name',
+      avatar: 'avatar',
+    },
   ],
   favorited: false,
-}
+};
 
 export { mockInitialState, mockPhoto, mockStore };

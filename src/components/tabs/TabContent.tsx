@@ -31,7 +31,6 @@ const TabContent: React.FC<TabGridProps> = ({ index, isHidden, isFavorites }) =>
             isInGrid={true}
             role="listitem"
             aria-label="Photo from gallery"
-            data-testid={`photo-thumbnail-${index}`}
           />
         ))}
       </StyledTabGrid>

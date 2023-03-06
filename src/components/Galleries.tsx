@@ -8,7 +8,7 @@ const Galleries: React.FC = () => {
   return (
     <StyledGalleriesContainer data-testid="galleries">
       <StyledGalleriesHeading>Photos</StyledGalleriesHeading>
-      <GalleriesTabs data-testid="galleries-tabs" />
+      <GalleriesTabs />
     </StyledGalleriesContainer>
   );
 };

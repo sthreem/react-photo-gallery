@@ -4,7 +4,7 @@ import { StyledNoPhotoSelectedHeading } from '@/styles/texts';
 
 const NoSelectedPhoto: React.FC = () => {
   return (
-    <StyledNoPhotoSelectedHeading data-testid="no-selected-photo-heading">
+    <StyledNoPhotoSelectedHeading data-testid="no-selected-photo">
       Select a photo to see details
     </StyledNoPhotoSelectedHeading>
   );
