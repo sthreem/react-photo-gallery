@@ -1,15 +1,15 @@
 import React from 'react';
 
-import GalleriesTabs from '@/components/GalleriesTabs';
-import { GalleriesContainer } from '@/styles/layout';
-import { GalleriesHeading } from '@/styles/texts';
+import GalleriesTabs from '@/components/tabs/GalleriesTabs';
+import { StyledGalleriesContainer } from '@/styles/layout';
+import { StyledGalleriesHeading } from '@/styles/texts';
 
 const Galleries: React.FC = () => {
   return (
-    <GalleriesContainer>
-      <GalleriesHeading className="dark">Photos</GalleriesHeading>
-      <GalleriesTabs />
-    </GalleriesContainer>
+    <StyledGalleriesContainer data-testid="galleries">
+      <StyledGalleriesHeading>Photos</StyledGalleriesHeading>
+      <GalleriesTabs data-testid="galleries-tabs" />
+    </StyledGalleriesContainer>
   );
 };
 

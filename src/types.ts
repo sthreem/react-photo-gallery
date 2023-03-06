@@ -46,14 +46,24 @@ export interface TabGridProps {
 export interface GridPhotoProps {
   key?: number;
   photo: Photo;
-  isInGrid: boolean;
+  isInGrid?: boolean;
+  role?: string;
 }
 
 export interface PhotoProps {
   loaded: boolean;
   isVertical: boolean;
+  isInGrid: boolean;
 }
 
-export interface HeartIconProps {
+export interface FavoriteButtonProps {
   isFavorite: boolean;
+  photo: Photo;
+  isInGrid: boolean;
+}
+
+export interface StyledPhotoWrapperProps {
+  loaded: boolean;
+  isActive: boolean;
+  isInGrid: boolean;
 }

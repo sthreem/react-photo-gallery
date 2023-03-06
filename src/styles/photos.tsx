@@ -1,123 +1,122 @@
 import styled from 'styled-components';
 
-import { PhotoProps } from '@/types';
+import { PhotoProps, StyledPhotoWrapperProps } from '@/types';
 
-export const PhotoFigure = styled.figure`
+export const StyledPhotoFigure = styled.figure<{ isInGrid: boolean }>`
+  width: 100%;
+  max-height: ${(props) => (props.isInGrid ? 'auto' : '100%')};
   display: flex;
   flex-direction: column;
   margin: 0;
-  width: 100%;
-  max-height: 100%;
-
-  &.photo-in-grid {
-    max-height: auto;
-  }
-
-  @media (min-width: 768px) {
-    &:not(.photo-in-grid) {
-      width: 50%;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    &:not(.photo-in-grid) {
-      width: 100%;
-    }
-  }
 `;
 
-export const PhotoWrapper = styled.span<{ loaded: boolean }>`
+export const StyledImageWrapper = styled.span<StyledPhotoWrapperProps>`
   position: relative;
-  background-color: ${(props) => (props.loaded ? 'transparent' : '#f3f3f3')};
-  margin-bottom: 0.4rem;
-  border-radius: 1rem;
-  max-height: 450px;
   display: flex;
   justify-content: center;
+  background-color: ${(props) => (props.loaded ? 'transparent' : '#f3f3f3')};
+  margin-bottom: 0.4rem;
+  max-height: 450px;
+  border-radius: 1rem;
 
-  &.photo-in-grid {
-    display: block;
-    cursor: pointer;
-    padding-bottom: 75%;
-
-    &.is-active-photo:before {
-      content: '';
-      position: absolute;
-      inset: -5px;
-      border: 2px solid #4f45e4;
-      border-radius: 1rem;
+  ${(props) => {
+    if (props.isInGrid) {
+      return `
+        display: block;
+        cursor: pointer;
+        padding-bottom: 75%;
+      `;
     }
-  }
+  }}
+
+  ${(props) => {
+    if (props.isInGrid && props.isActive) {
+      return `
+       &::before {
+        content: '';
+        position: absolute;
+        inset: -5px;
+        border-radius: 1rem;
+        border: 2px solid #4f45e4;
+       }
+      `;
+    }
+  }}
 
   @media (min-width: 1024px) {
     max-height: inherit;
   }
 `;
 
-export const PhotoImage = styled.img<PhotoProps>`
+export const StyledImage = styled.img<PhotoProps>`
   width: ${(props) => (props.isVertical ? 'auto' : '100%')};
   height: ${(props) => (props.isVertical ? '100%' : 'auto')};
-
   border-radius: 1rem;
   opacity: ${(props) => (props.loaded ? 1 : 0)};
   transition: all 0.3s ease-in-out;
-  display: none;
 
-  &.photo-in-grid {
-    display: inherit;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    object-fit: cover;
+  ${(props) => {
+    if (props.isInGrid) {
+      return `
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
 
-    &:hover {
-      opacity: 0.5;
+        &:hover {
+          opacity: 0.5;
+        }
+      `;
     }
-  }
+  }}
+`;
 
-  @media (min-width: 768px) {
-    &:not(.photo-in-grid) {
-      display: inherit;
+export const StyledInfoActionWrapper = styled.span<{ isInGrid: boolean }>`
+  ${(props) => {
+    if (!props.isInGrid) {
+      return `
+        display: flex;
+        justify-content: space-between;
+      `;
     }
-  }
+  }}
 `;
 
-export const InfoActionWrapper = styled.span`
-  &:not(.photo-in-grid) {
-    display: flex;
-    justify-content: space-between;
-  }
+export const StyledInfoWrapper = styled.span`
+  flex-direction: column;
 `;
 
-export const InfoWrapper = styled.span`
-  &:not(.photo-in-grid) {
-    display: flex;
-    flex-direction: column;
-  }
+export const StyledFavoritePhotoButtonWrapper = styled.span<{ isInGrid: boolean }>`
+  display: ${(props) => (props.isInGrid ? 'none' : 'flex')};
+
+  ${(props) => {
+    if (!props.isInGrid) {
+      return `
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      `;
+    }
+  }}
 `;
 
-export const ActionWrapper = styled.span`
-  display: none;
-
-  &:not(.photo-in-grid) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-`;
-
-export const PhotoCaption = styled.figcaption`
+export const StyledPhotoCaption = styled.figcaption<{ isInGrid: boolean }>`
   padding: 0.4rem 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #161d30;
+  font-weight: 600;
 
-  &:not(.photo-in-grid) {
-    font-size: 1rem;
-  }
+  ${(props) => {
+    if (!props.isInGrid) {
+      return `
+        font-size: 1rem;
+      `;
+    }
+  }}
 `;
 
-export const PhotoInfos = styled.article`
+export const StyledPhotoInfos = styled.article`
   display: flex;
   width: 100%;
   padding-top: 1rem;
@@ -133,37 +132,19 @@ export const PhotoInfos = styled.article`
   }
 `;
 
-export const DetailsWrapper = styled.section`
-  width: 450px;
+export const StyledDetailsWrapper = styled.section<{ isSelected: boolean }>`
   height: 100%;
   max-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: ${(props) => (props.isSelected ? 'flex-start' : 'center')};
   align-items: center;
-
-  @media (min-width: 768px) {
-    max-width: 50%;
-
-    &.selected-photo {
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    max-height: inherit;
-    max-width: 450px;
-    justify-content: center;
-    align-items: center;
-
-    &.selected-photo {
-      justify-content: flex-start;
-    }
-  }
+  width: 100%;
+  max-width: 450px;
 `;
 
-export const DeleteButton = styled.button`
+export const StyledDeleteButton = styled.button`
+  width: 100%;
   margin-top: 1rem;
   cursor: pointer;
   background: none;
@@ -171,6 +152,7 @@ export const DeleteButton = styled.button`
   border-radius: 0.5rem;
   border: 2px solid #cdd8e3;
   transition: all 0.3s ease-in-out;
+  font-weight: 600;
 
   &:hover {
     background-color: #cdd8e3;
@@ -178,5 +160,31 @@ export const DeleteButton = styled.button`
 
   @media (min-width: 1024px) {
     margin-top: 2rem;
+  }
+`;
+
+export const StyledCloseMenuButtonWrapper = styled.span`
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`;
+
+export const StyledButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+`;
+
+export const StyledSvg = styled.svg`
+  fill: #64748b;
+  transition: fill 0.2s;
+
+  ${StyledButton}:hover & {
+    fill: #4f45e4;
   }
 `;

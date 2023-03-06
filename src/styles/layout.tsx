@@ -1,71 +1,60 @@
 import styled from 'styled-components';
 
 // Main app view
-export const AppWrapper = styled.div`
+export const StyledAppWrapper = styled.div`
   display: flex;
-  height: 100vh;
   flex-direction: row;
+  height: 100vh;
   overflow: hidden;
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-  }
+  position: relative;
 `;
 
-export const MainContent = styled.main`
-  background-color: #f7fafc;
-  flex: 2;
-  border-top: 1px solid #cdd8e3;
+export const StyledMainContent = styled.main`
   display: flex;
+  flex: 2;
   justify-content: center;
   align-items: flex-start;
   padding: 1.5rem;
+  background-color: #f7fafc;
   overflow-x: auto;
 
   @media (min-width: 1024px) {
-    border-top: none;
-    border-right: 1px solid #cdd8e3;
     padding: 2.5rem;
   }
 `;
 
-export const SideContent = styled.aside`
-  background-color: #fff;
-  flex: 1;
+export const StyledSideContent = styled.aside<{ isSelected: boolean }>`
   display: flex;
+  flex: 1;
+  height: 100%;
   justify-content: center;
   align-items: flex-start;
-  padding: 1.5rem;
-  border-top: 1px solid #cdd8e3;
-  transition: flex 0.2s ease-in-out;
-  max-height: 427px;
+  position: absolute;
+  right: 0;
+  width: 0;
+  padding: 0;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  max-height: 100%;
 
-  &.no-selected-photo {
-    justify-content: center;
-    flex: 0;
-  }
-
-  @media (min-width: 768px) {
-    justify-content: flex-start;
-  }
+  ${(props) => {
+    if (props.isSelected) {
+      return `
+        padding: 1.5rem;
+        width: 100%;
+      `;
+    }
+  }}
 
   @media (min-width: 1024px) {
-    border-top: none;
+    position: relative;
+    border-left: 1px solid #cdd8e3;
     padding: 2.5rem;
-    height: 100%;
-    max-height: 100%;
-    align-items: center;
-    justify-content: center;
-
-    &.no-selected-photo {
-      display: flex;
-      flex: 1;
-    }
   }
 `;
 
 // Inner galleries view
-export const GalleriesContainer = styled.div`
+export const StyledGalleriesContainer = styled.div`
   width: 100%;
 
   @media (min-width: 1024px) {

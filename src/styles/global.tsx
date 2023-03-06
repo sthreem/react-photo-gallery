@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --overlay-color: rgba(255, 255, 255, 0.8);
+  }
+
   * {
     box-sizing: border-box;
   }
@@ -11,36 +15,8 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 300;
   }
 
-  h1 {
-    font-weight: 700;
-    margin: 0;
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-weight: 600;
-    margin: 0;
-    font-size: 1rem;
-  }
-
   p {
     margin: 0;
-  }
-
-  .semibold {
-    font-weight: 400;
-  }
-
-  .bold {
-    font-weight: 600;
-  }
-
-  .light {
-    color: #64748B;
-  }
-
-  .dark {
-    color: #161D30;
   }
 `;
 

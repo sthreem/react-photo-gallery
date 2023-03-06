@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import Galleries from '@/components/Galleries';
 import Loader from '@/components/Loader';
-import PhotoDetails from '@/components/PhotoDetails';
+import PhotoDetails from '@/components/photos/PhotoDetails';
 import { useAppDispatch, useAppSelector } from '@/store';
 import {
   fetchPhotos,
@@ -10,7 +10,7 @@ import {
   selectSelectedPhoto,
 } from '@/store/photosSlice';
 import GlobalStyle from '@/styles/global';
-import { AppWrapper, MainContent, SideContent } from '@/styles/layout';
+import { StyledAppWrapper, StyledMainContent, StyledSideContent } from '@/styles/layout';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -24,15 +24,18 @@ const App: React.FC = () => {
   return (
     <>
       <GlobalStyle />
-      {photosStatus === 'loading' && <Loader />}
-      <AppWrapper>
-        <MainContent>
-          <Galleries />
-        </MainContent>
-        <SideContent className={!selectedPhoto ? 'no-selected-photo' : ''}>
+      {/* Display loader while fetching pictures */}
+      {photosStatus === 'loading' && <Loader data-testid="loader" />}
+      <StyledAppWrapper>
+        {/* Main content for tabs and galleries */}
+        <StyledMainContent>
+          <Galleries data-testid="galleries" />
+        </StyledMainContent>
+        {/* Side content for selected picture's details */}
+        <StyledSideContent isSelected={!!selectedPhoto} data-testid="photo-details">
           <PhotoDetails />
-        </SideContent>
-      </AppWrapper>
+        </StyledSideContent>
+      </StyledAppWrapper>
     </>
   );
 };
