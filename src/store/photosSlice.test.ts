@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { mockInitialState,mockPhoto } from '@/test-utils/mocks'
+import { mockInitialState, mockPhoto } from '@/test-utils/mocks';
 import { PhotosState } from '@/types';
 
 import photosSlice, {
@@ -83,9 +83,27 @@ describe('photosSlice', () => {
   });
 
   describe('selectors', () => {
-    const photo1 = { ...mockPhoto, id: '1', url: 'https://test.com/1', createdAt: '2022-01-01', favorited: true };
-    const photo2 = { ...mockPhoto, id: '2', url: 'https://test.com/2', createdAt: '2022-01-02', favorited: false };
-    const photo3 = { ...mockPhoto, id: '3', url: 'https://test.com/3', createdAt: '2022-01-03', favorited: true };
+    const photo1 = {
+      ...mockPhoto,
+      id: '1',
+      url: 'https://test.com/1',
+      createdAt: '2022-01-01',
+      favorited: true,
+    };
+    const photo2 = {
+      ...mockPhoto,
+      id: '2',
+      url: 'https://test.com/2',
+      createdAt: '2022-01-02',
+      favorited: false,
+    };
+    const photo3 = {
+      ...mockPhoto,
+      id: '3',
+      url: 'https://test.com/3',
+      createdAt: '2022-01-03',
+      favorited: true,
+    };
     const state: PhotosState = {
       ...mockInitialState,
       photos: [photo1, photo2, photo3],
@@ -103,48 +121,76 @@ describe('photosSlice', () => {
     });
 
     it('should select the status of the photos', () => {
-      const status = selectPhotosStatus({ photos: { ...mockInitialState, status: 'loading' } });
+      const status = selectPhotosStatus({
+        photos: { ...mockInitialState, status: 'loading' },
+      });
       expect(status).toEqual('loading');
     });
 
     it('should select the error of the photos', () => {
-      const error = selectPhotosError({ photos: { ...mockInitialState, error: 'Error message' } });
+      const error = selectPhotosError({
+        photos: { ...mockInitialState, error: 'Error message' },
+      });
       expect(error).toEqual('Error message');
     });
 
     it('should select the selected photo', () => {
-      const selectedPhoto = selectSelectedPhoto({ photos: { ...mockInitialState, selectedPhoto: photo1 } });
+      const selectedPhoto = selectSelectedPhoto({
+        photos: { ...mockInitialState, selectedPhoto: photo1 },
+      });
       expect(selectedPhoto).toEqual(photo1);
     });
 
     it('should select the photo size', () => {
       const photo = { ...mockPhoto, width: 100, height: 200 };
       const size = selectPhotoSize({ photos: { ...mockInitialState, photos: [photo] } });
-      expect(size).toEqual({ id: "4.6 MB" });
+      expect(size).toEqual({ id: '4.6 MB' });
     });
 
     it('should select if a photo is in favorites', () => {
-      const isPhotoInFavorites = selectIsPhotoInFavorites('1')({ photos: { ...mockInitialState, favorites: [photo1] } });
+      const isPhotoInFavorites = selectIsPhotoInFavorites('1')({
+        photos: { ...mockInitialState, favorites: [photo1] },
+      });
       expect(isPhotoInFavorites).toBeTruthy();
     });
 
     it('should select the info to display', () => {
       const expectedInfo = [
-        {key: "Uploaded by", value: "uploadedBy"},
-        {key: "Created", value: "December 31, 2021"},
-        {key: "Last modified", value: "December 16, 2022"},
-        {key: "Dimensions", value: "100 x 100"},
-        {key: "Resolution", value: "100 x 100"}
-      ]
-      const info = selectInfoToDisplay({ photos: { ...mockInitialState, selectedPhoto: photo1 } });
+        { key: 'Uploaded by', value: 'uploadedBy' },
+        { key: 'Created', value: 'December 31, 2021' },
+        { key: 'Last modified', value: 'December 16, 2022' },
+        { key: 'Dimensions', value: '100 x 100' },
+        { key: 'Resolution', value: '100 x 100' },
+      ];
+      const info = selectInfoToDisplay({
+        photos: { ...mockInitialState, selectedPhoto: photo1 },
+      });
       expect(info).toEqual(expectedInfo);
     });
   });
 
   describe('async actions', () => {
-    const photo1 = { ...mockPhoto, id: '1', url: 'https://test.com/1', createdAt: '2022-01-01', favorited: true };
-    const photo2 = { ...mockPhoto, id: '2', url: 'https://test.com/2', createdAt: '2022-01-02', favorited: false };
-    const photo3 = { ...mockPhoto, id: '3', url: 'https://test.com/3', createdAt: '2022-01-03', favorited: true };
+    const photo1 = {
+      ...mockPhoto,
+      id: '1',
+      url: 'https://test.com/1',
+      createdAt: '2022-01-01',
+      favorited: true,
+    };
+    const photo2 = {
+      ...mockPhoto,
+      id: '2',
+      url: 'https://test.com/2',
+      createdAt: '2022-01-02',
+      favorited: false,
+    };
+    const photo3 = {
+      ...mockPhoto,
+      id: '3',
+      url: 'https://test.com/3',
+      createdAt: '2022-01-03',
+      favorited: true,
+    };
     const photos = [photo1, photo2, photo3];
     const mockAxios = jest.spyOn(axios, 'get');
 
@@ -165,7 +211,6 @@ describe('photosSlice', () => {
       expect(dispatchMock).toHaveBeenCalledWith(fetchPhotos.fulfilled(photos, requestId));
     });
 
-
     it('should handle fetch photos failure', async () => {
       const error = new Error('Network Error');
       mockAxios.mockRejectedValue(error);
@@ -180,4 +225,3 @@ describe('photosSlice', () => {
     });
   });
 });
-
